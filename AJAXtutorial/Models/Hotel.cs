@@ -15,6 +15,11 @@ namespace AJAXtutorial.Models
         }
 
         [Key]
+        public int HotelID { get; set; }
         public string Name { get; set; }
+        //FK/nav prop
+        [ForeignKey("City")]
+        public int CityID { get; set; }
+        public virtual City City { get; set; }
     }
 }

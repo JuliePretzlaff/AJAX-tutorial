@@ -10,107 +10,107 @@ using AJAXtutorial.Models;
 
 namespace AJAXtutorial.Controllers
 {
-    public class CountriesController : Controller
+    public class CitiesController : Controller
     {
         private AJAXtutorialContext db = new AJAXtutorialContext();
 
-        // GET: Countries
+        // GET: Cities
         public ActionResult Index()
         {
-            return View(db.Countries.ToList());
+            return View(db.Cities.ToList());
         }
 
-        // GET: Countries/Details/5
-        public ActionResult Details(int? id)
+        // GET: Cities/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Country country = db.Countries.Find(id);
-            if (country == null)
+            City city = db.Cities.Find(id);
+            if (city == null)
             {
                 return HttpNotFound();
             }
-            return View(country);
+            return View(city);
         }
 
-        // GET: Countries/Create
+        // GET: Cities/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Countries/Create
+        // POST: Cities/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CountryID,Name")] Country country)
+        public ActionResult Create([Bind(Include = "Name")] City city)
         {
             if (ModelState.IsValid)
             {
-                db.Countries.Add(country);
+                db.Cities.Add(city);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(country);
+            return View(city);
         }
 
-        // GET: Countries/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Cities/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Country country = db.Countries.Find(id);
-            if (country == null)
+            City city = db.Cities.Find(id);
+            if (city == null)
             {
                 return HttpNotFound();
             }
-            return View(country);
+            return View(city);
         }
 
-        // POST: Countries/Edit/5
+        // POST: Cities/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CountryID,Name")] Country country)
+        public ActionResult Edit([Bind(Include = "Name")] City city)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(country).State = EntityState.Modified;
+                db.Entry(city).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(country);
+            return View(city);
         }
 
-        // GET: Countries/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Cities/Delete/5
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Country country = db.Countries.Find(id);
-            if (country == null)
+            City city = db.Cities.Find(id);
+            if (city == null)
             {
                 return HttpNotFound();
             }
-            return View(country);
+            return View(city);
         }
 
-        // POST: Countries/Delete/5
+        // POST: Cities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Country country = db.Countries.Find(id);
-            db.Countries.Remove(country);
+            City city = db.Cities.Find(id);
+            db.Cities.Remove(city);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

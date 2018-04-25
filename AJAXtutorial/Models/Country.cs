@@ -12,12 +12,13 @@ namespace AJAXtutorial.Models
         
         public Country(string name)
         {
-
+            
             Name = name;
             Cities = new List<City>();
         }
 
        [Key]
+        public int CountryID { get; set; }
         public string Name { get; set; }
         public List<City> Cities { get; set; }
 
