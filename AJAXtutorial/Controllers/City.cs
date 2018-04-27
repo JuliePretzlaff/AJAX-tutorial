@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AJAXtutorial.Controllers
 {
-    public class Country
+    public class City
     {
     }
 }

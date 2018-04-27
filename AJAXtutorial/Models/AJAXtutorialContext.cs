@@ -19,8 +19,6 @@ namespace AJAXtutorial.Models
         {
         }
 
-        public System.Data.Entity.DbSet<AJAXtutorial.Models.Country> Countries { get; set; }
-
-        public System.Data.Entity.DbSet<AJAXtutorial.Models.City> Cities { get; set; }
+       
     }
 }
