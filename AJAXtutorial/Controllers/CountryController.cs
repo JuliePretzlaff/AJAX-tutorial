@@ -6,25 +6,28 @@ using System.Web.Mvc;
 
 namespace AJAXtutorial.Controllers
 {
-    private List<Country> countries = new List<Country>
+    public class CountyController : Controller
+    {
+        private List<Country> countries = new List<Country>
         {
-            new Country("Cuyahoga")
+            new Country("Paraguay")
             {
                 Cities = new List<City>
                 {
-                    new City("Solon"),
-                    new City("Bay Village"),
-                    new City("North Olmsted"),
+                    new City("Trinidad"),
+                    new City("Asuncion"),
+                    new City("Encarnacion"),
                 }
             },
-            new County("Lorain")
+            new Country("USA")
             {
                 Cities = new List<City>
                 {
-                    new City("Avon"),
-                    new City("Elyria"),
-                    new City("Oberlin"),
+                    new City("Cleveland"),
+                    new City("Bozeman"),
+                    new City("Bellingham"),
                 }
             }
         };
+    }
 }

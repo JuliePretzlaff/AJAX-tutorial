@@ -5,14 +5,13 @@ using System.Web;
 
 namespace AJAXtutorial.Controllers
 {
-    public class City
+    public class Hotel
     {
-        public City(string name)
+        public Hotel(string name)
         {
             Name = name;
-            Hotels = new List<Hotel>();
         }
         public string Name { get; set; }
-        public List<City> Hotels { get; set; }
+
     }
 }

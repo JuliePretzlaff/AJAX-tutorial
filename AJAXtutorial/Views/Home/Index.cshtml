@@ -19,61 +19,6 @@
 
 
 
-public class City
-    {
-
-        public City(string name)
-        {
-            Name = name;
-            Hotels = new List<Hotel>
-    ();
-    }
-
-    [Key]
-    public int CityID { get; set; }
-    public string Name { get; set; }
-    public List<Hotel>
-    Hotels { get; set; }
-
-    //FK/nav prop
-    [ForeignKey("Country")]
-    public int CountryID { get; set; }
-    public virtual Country Country { get; set; }
-    }
-
-    public class Country
-    {
 
 
-    public Country(string name)
-    {
-
-    Name = name;
-    Cities = new List<City>
-        ();
-        }
-
-        [Key]
-        public int CountryID { get; set; }
-        public string Name { get; set; }
-        public List<City>
-    Cities { get; set; }
-
-    }
-    }
-    public class Hotel
-    {
-
-    public Hotel(string name)
-    {
-    Name = name;
-    }
-
-    [Key]
-    public int HotelID { get; set; }
-    public string Name { get; set; }
-    //FK/nav prop
-    [ForeignKey("City")]
-    public int CityID { get; set; }
-    public virtual City City { get; set; }
-    }
+    
