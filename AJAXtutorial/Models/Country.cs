@@ -11,6 +11,7 @@ namespace AJAXtutorial.Controllers
         {
             Name = name;
             Cities = new List<City>();
+
         }
         public string Name { get; set; }
         public List<City> Cities { get; set; }

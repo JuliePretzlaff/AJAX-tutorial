@@ -10,7 +10,6 @@ namespace AJAXtutorial.Controllers
         public City(string name)
         {
             Name = name;
-            Hotels = new List<Hotel>();
         }
         public string Name { get; set; }
         public List<City> Hotels { get; set; }

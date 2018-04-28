@@ -4,12 +4,12 @@
 
 <div class="row">
     <p>Choose a country to visit:</p>
-    <select id="country"></select>
+    <select id="countries"></select>
 </div>
 
 <div class="row">
     <p>What city will you visit?</p>
-    <select id="city"></select>
+    <select id="cities"></select>
 
 
 </div><div class="row">
@@ -21,4 +21,42 @@
 
 
 
-    
+@section scripts {
+    <script>
+        $(function () {
+            loadCountries();
+
+            $("#countries").change(() => {
+                var selectedCountry = $("#countries").val();
+                clearCities();
+                loadCitiesFor(selectedCountry);
+            });
+        });
+
+        function loadCountries() {
+            fetch('/Country/GetCountries')
+                .then((response) => response.json())
+                .then((countries) => {
+                    loadValuesIntoDropdown('#countries', countries);
+                });
+        }
+
+        function loadCitiesFor(countryName) {
+            fetch('/Country/GetCitiesInCountry?countryName=' + countryName)
+                .then((response) => response.json())
+                .then((countries) => {
+                    loadValuesIntoDropdown('#cities', countries);
+                });
+        }
+
+        function clearCities() {
+            $("#cities").empty();
+        }
+
+        function loadValuesIntoDropdown(selector, values) {
+            $.each(values, function () {
+                $(selector).append($("<option />").val(this).text(this));
+            });
+        }
+    </script>
+}

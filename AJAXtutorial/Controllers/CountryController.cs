@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace AJAXtutorial.Controllers
 {
-    public class CountyController : Controller
+    public class CountryController : Controller
     {
         private List<Country> countries = new List<Country>
         {
@@ -29,5 +29,17 @@ namespace AJAXtutorial.Controllers
                 }
             }
         };
+        public JsonResult GetCountries()
+        {
+            var countryNames = countries.Select(c => c.Name);
+            return Json(countryNames, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetCitiesInCountry(string countryName)
+        {
+            var country = countries.Single(c => c.Name == countryName);
+            var schoolNames = country.Cities.Select(city => city.Name);
+            return Json(schoolNames, JsonRequestBehavior.AllowGet);
+        }
     }
 }
